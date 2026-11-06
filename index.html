@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ordenar palabras</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<section id="home" class="screen active">
+  <div class="hero">
+    <div class="logo" aria-hidden="true">🔤🧩</div>
+    <h1>Ordenar palabras</h1>
+    <p class="lead">Las palabras están en desorden. ¡Arrástralas a su lugar para formar la frase!</p>
+    <ol class="howto">
+      <li><b>Arrastra</b> cada palabra a un espacio, o haz <b>clic</b> en la palabra y luego en el espacio.</li>
+      <li>Si va en su lugar, suena <b class="g">bien</b> y se queda fija.</li>
+      <li>Si no, suena un <b class="r">error</b> y la palabra vuelve. ¡Inténtalo de nuevo!</li>
+    </ol>
+    <label class="pick">Actividad <select id="homeSelect"></select></label>
+    <div class="btns">
+      <button id="btnStart" class="btn big green">▶ COMENZAR JUEGO</button>
+      <a id="btnConfig" class="btn big blue" href="config.html">⚙ CONFIGURAR ACTIVIDAD</a>
+    </div>
+  </div>
+</section>
+
+<section id="game" class="screen">
+  <header class="gbar">
+    <h2 id="gTitle"></h2>
+    <div class="stats">
+      <span class="chip">📝 <b id="sPhrase">1/1</b></span>
+      <span class="chip">✅ <b id="sOk">0</b></span>
+      <span class="chip">❌ <b id="sErr">0</b></span>
+      <span class="chip">⏱ <b id="sTime">0:00</b></span>
+    </div>
+    <div class="gbtns">
+      <button id="gSound" class="btn small ghost" aria-label="Sonido">🔊</button>
+      <button id="gRestart" class="btn small amber">↻ REINICIAR</button>
+      <button id="gExit" class="btn small red">SALIR</button>
+    </div>
+  </header>
+  <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"><div id="pBar"></div><span id="pTxt">0%</span></div>
+  <p id="msg" class="msg" aria-live="polite">&nbsp;</p>
+  <main id="stage" class="stage off">
+    <div id="slots" class="slots" aria-label="Espacios para ordenar"></div>
+    <div id="bank" class="bank" aria-label="Palabras en desorden"></div>
+  </main>
+</section>
+
+<section id="result" class="screen">
+  <div class="hero">
+    <div class="logo" id="rIcon">🏆</div>
+    <h1 id="rTitle">¡Felicidades, has completado la actividad!</h1>
+    <div class="results">
+      <div><b id="rScore">0</b><span>Puntuación</span></div>
+      <div><b id="rOk">0</b><span>Palabras correctas</span></div>
+      <div><b id="rErr">0</b><span>Errores</span></div>
+      <div><b id="rTime">0:00</b><span>Tiempo</span></div>
+      <div><b id="rPerf">0%</b><span>Rendimiento</span></div>
+    </div>
+    <div class="btns">
+      <button id="rAgain" class="btn big green">↻ VOLVER A JUGAR</button>
+      <button id="rExit" class="btn big red">SALIR</button>
+    </div>
+  </div>
+</section>
+
+<div id="countdown" class="overlay"><div id="cdNum"></div></div>
+<div id="cModal" class="overlay modal" role="dialog" aria-modal="true" aria-labelledby="cText">
+  <div class="dialog"><div id="cIcon" class="logo" aria-hidden="true">❓</div><p id="cText"></p>
+    <div class="btns"><button id="cNo" class="btn big green">CANCELAR</button><button id="cYes" class="btn big red">SÍ</button></div></div>
+</div>
+<div id="toast" class="toast" role="status"></div>
+<script src="common.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

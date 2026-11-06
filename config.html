@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configurar actividad - Ordenar palabras</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="cfg">
+<div class="panel">
+  <header class="bar"><h1>⚙ Configurar actividad</h1><a class="btn small ghost" href="index.html">← Volver al juego</a></header>
+
+  <div class="card-box">
+    <h3>Actividades guardadas</h3>
+    <div class="row">
+      <select id="aSaved" aria-label="Actividades guardadas"></select>
+      <button id="aLoad" class="btn small blue">Cargar / editar</button>
+      <button id="aDelete" class="btn small red">Eliminar</button>
+      <button id="aReset" class="btn small ghost">Reiniciar configuración</button>
+    </div>
+  </div>
+
+  <div class="card-box">
+    <h3>Configuración del juego</h3>
+    <div class="grid">
+      <label>Título de la actividad<input id="aTitle" maxlength="60"></label>
+      <label>Tiempo límite en segundos (0 = sin límite)<input id="aTime" type="number" min="0" max="3600"></label>
+      <label class="check"><input id="aSound" type="checkbox"> Sonidos activados</label>
+    </div>
+  </div>
+
+  <div class="card-box">
+    <h3>Frases a ordenar <span id="aCount" class="tag"></span></h3>
+    <p class="hint">Escribe cada frase en su orden correcto (de 2 a 12 palabras). En el juego se mostrarán mezcladas.</p>
+    <div id="aPhrases"></div>
+    <button id="aAdd" class="btn small blue">+ Agregar frase</button>
+  </div>
+
+  <div class="btns">
+    <button id="aSave" class="btn big green">💾 GUARDAR ACTIVIDAD</button>
+    <button id="aPlay" class="btn big violet">▶ GUARDAR Y JUGAR</button>
+  </div>
+</div>
+
+<div id="cModal" class="overlay modal" role="dialog" aria-modal="true" aria-labelledby="cText">
+  <div class="dialog"><div id="cIcon" class="logo" aria-hidden="true">🗑️</div><p id="cText"></p>
+    <div class="btns"><button id="cNo" class="btn big green">CANCELAR</button><button id="cYes" class="btn big red">SÍ, ELIMINAR</button></div></div>
+</div>
+<div id="toast" class="toast" role="status"></div>
+<script src="common.js"></script>
+<script src="config.js"></script>
+</body>
+</html>
